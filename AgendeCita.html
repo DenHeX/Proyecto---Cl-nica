@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Cita</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body id="AgendaCita">
+
+
+    <div class="tituloCita">
+        <div class="col-12" style="background-color:rgb(13, 192, 219)">
+            <h2>Clínica Aurora Vitalis</h2>
+            <section class="logoCita">
+                <img src="img/LogoHospital.jpg" width="60px" height="80px" alt="">
+            </section>
+
+        </div>
+    </div>
+    
+    <div id="DatosCita">
+        <form action="my_form" autocomplete="on" method="post">
+            <fieldset id="field2">
+                <header id="head">
+
+                    <div id="titulo">
+                        <h1>Solicitud de citas</h1>
+                    </div>
+
+                </header>
+                <br><br>
+
+                <p class="des">Ingresa tu número de identificación y fecha de nacimiento. 
+                Si eres extranjero ingresa tu número de carné de residente y fecha de nacimiento.
+                </p>
+                <br><br>
+
+                <label for="identificacion">Tipo de identificación: </label>
+                <br>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleccione una opción</option>
+                    <option value="1">Nacional</option>
+                    <option value="2">Pasaportes / Extranjeros</option>
+                </select>
+                <br><br>
+
+                <label for="id">Número de identificación: </label>
+                <br>
+                <input type="id" name="id" id="id" placeholder="#-####-####" required="true"/>
+                <br><br>
+
+                <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                <br>
+                <input type="text" id="fechaNacimiento" name="fechaNacimiento" placeholder="(DD/MM/AAAA)" required="true">
+                <br><br>
+
+                <br><br>
+
+                <div id="botonCita">
+                    <input type="submit" value="Ingresar" />
+                </div>
+
+                <br><br>
+
+                <div class="reg">
+                    ¿Eres un paciente nuevo? <a href="" id="reg">Regístrate aquí</a>
+                </div>
+                
+
+            </fieldset>
+            
+        </form>
+        
+
+        
+    </div>
+    
+    
+
+
+
+</body>
+</html>

@@ -1,62 +1,162 @@
-*{
+* {
     text-decoration: none;
     margin: 0px;
     padding: 0px;
-    
+
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 #header {
-    border: 1px solid;
+    border: 0.5px solid;
+    background: rgb(13, 192, 219);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 
-.titulo{
+.titulo {
     display: contents;
     font-family: Arial, Helvetica, sans-serif;
     align-items: center;
-
-    color: #04045f;
+    color: white;
 }
 
-h2{
+h2 {
     margin-left: 70px;
     margin-top: 50px;
 }
 
-.head{
+.head {
     display: flex;
 
 }
 
-.infoHead{
+.infoHead {
     display: flex;
     margin-left: 600px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #04045f;
+    color: white;
 }
 
-#colsHead {
-    
+.btnCita{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo{
+.btnCita >  li > a{
+    display: block;   
+    padding: 0px;
+    font-size: 16px;
+    background-color: rgb(13, 192, 219);
+    color: white;
+    transition: all 300ms;
+}
+
+.btnCita a {
+    color: white;
+    padding: 15px;
+    transition: all 200ms;
+}
+
+.btnCita a:hover {
+    background: rgb(182, 181, 181);
+    border-radius: 10px;
+}
+
+.tituloCita{
+    margin-left: 600px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.logoCita{
+    margin-top: -50px;
+}
+
+#AgendaCita {
+  background-color: rgb(13, 192, 219);
+}
+
+#DatosCita {
+  width: 30%;
+  height: auto;
+  margin: 0px auto;
+  border: 1px solid rgb(225, 225, 226), 0.8;
+  box-shadow: 0px 0px 10px #ccc;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  min-height: 500px;
+  background: #fcfafa;
+}
+
+#field2 {
+  padding: 20px;
+  height: 480px;
+}
+
+#titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    background-color:rgb(13, 192, 219);
+    text-align: center;
+    color: white;
+}
+
+.des{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    color: hsl(0, 0%, 55%);
+}
+
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.reg{
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+
+#reg{
+    color: rgb(13, 192, 219);
+}
+
+
+#botonCita input[type="submit"]{
+  background-color: rgb(13, 192, 219);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  size: 40px;
+  padding:  5px 180px;
+}
+
+
+.logo {
     display: flex;
     margin-top: -53px;
-    
+    margin-left: 5px;
 }
 
 #barra {
     text-decoration: none;
-
     height: 100px;
     display: flex;
-    border: 1px solid grey;
+    border: 0.5px solid grey;
     align-items: center;
-    background-color: hsl(0, 0%, 88%);  
+    background-color: rgb(182, 181, 181);
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#barra > ul {
+#barra>ul {
     height: 20px;
     display: flex;
     flex-direction: row;
@@ -66,25 +166,236 @@ h2{
     list-style: none;
     margin-left: 300px;
 
-    
+
 
 }
 
 #barra a {
-    color: #04045f;
+    color: white;
     padding: 15px;
     transition: all 200ms;
-    border: 1px solid grey;
+    border: 0.5px solid grey;
 }
 
 #barra a:hover {
     background: grey;
 }
 
-#container{
+#container {
     margin: 0px auto;
-    min-height: 600px;
+    min-height: 900px;
     background-color: rgb(13, 192, 219);
-    list-style: none    ;
+    list-style: none;
+    margin-top: -50px;
 }
 
+.infoGeneral{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 300px;
+}
+
+.infoGeneral > h2{
+    font-size: 40px;
+    color: white;
+}
+
+.p{
+    display: flex;
+    font-size: 16px;
+    margin-top: 2;
+    width: 700px;
+    align-items: center;
+    margin-left: 450px;
+    color: white;
+    text-align: justify;
+}
+
+.tituloCards {
+    font-size: 30px;
+    background-color: grey;
+}
+
+#cards{
+    display: flex;
+    background-color:grey;
+    color: white;
+    align-items: center;
+    margin-top: -55px;
+    
+}
+
+#cards > a {
+    text-decoration: none;
+}
+
+.card1{
+    width: 700px;
+    height: 700px;
+    text-align: center;
+    margin-left: 480px;
+
+}
+
+#botonCard1 > ul > li > a{
+    display: block;
+    margin: 4px 2px;    
+    padding: 0px;
+    font-size: 16px;
+    margin-left: 20px;
+    margin-right: -70px;
+    text-decoration: none;
+    background-color: rgb(13, 192, 219);
+    color: white;
+    transition: all 300ms;
+    list-style: none;
+}
+
+#botonCard1 ul{
+    list-style: none;
+    margin-left: 45px;
+    margin-right: 150px;
+}
+
+#btnCard1 a:hover {
+    background-color: white;
+    color: rgb(13, 192, 219);
+}
+
+.card2{
+    width: 700px;
+    height: 700px;
+    text-align: center;
+    margin-left: 47px;
+}
+
+#botonCard2 > ul > li > a{
+    display: block;
+    margin: 4px 2px;    
+    padding: 0px;
+    font-size: 16px;
+    margin-left: 30px;
+    margin-right: -70px;
+    text-decoration: none;
+    background-color: rgb(13, 192, 219);
+    color: white;
+    transition: all 300ms;
+    list-style: none;
+}
+
+#botonCard2 ul{
+    list-style: none;
+    margin-left: 45px;
+    margin-right: 150px;
+}
+
+#btnCard2 a:hover {
+    background-color: white;
+    color: rgb(13, 192, 219);
+}
+
+
+.card3{
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    margin-left: -620px;
+}
+
+.card4 {
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    margin-left: 47px;
+}
+
+.card5{
+    width: 700px;
+    margin-top: 290px;
+    text-align: center;
+    margin-left: -620px;
+}
+
+.card6{
+    width: 700px;
+    margin-top: 290px;
+    text-align: center;
+    margin-left: 47px;
+}
+
+.card7{
+    width: 700px;
+    margin-top: 660px;
+    text-align: center;
+    margin-left: -460px;
+}
+
+.imgInicio{
+    margin-top: -55px;
+}
+
+#headerServicios {
+    border: 0.5px solid;
+    background: rgb(13, 192, 219);
+}
+
+
+.tituloServicios {
+    display: contents;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    color: white;
+}
+
+h2 {
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.headServicios {
+    display: flex;
+
+}
+
+.infoHeadServicios {
+    display: flex;
+    margin-left: 600px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.RedesSociales1{
+    margin-left: -400px;
+}
+
+.RedesSociales2{
+    margin-left: 450px;
+    margin-top: -255px;
+}
+
+#infoAlDia{
+    margin-top: -180px;
+}
+
+.contactenos{
+    font-size: 40px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.direccion{
+    align-items: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.emergencias{
+    align-items: center;
+    text-align: center;
+}
+
+p{
+    
+}
