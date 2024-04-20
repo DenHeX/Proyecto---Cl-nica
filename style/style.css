@@ -11,7 +11,7 @@ html {
 
 #header {
     border: 0.5px solid;
-    background: rgb(13, 192, 219);
+    background: hwb(240 0% 69%);
     position: fixed;
     top: 0;
     width: 100%;
@@ -54,7 +54,7 @@ h2 {
     display: block;   
     padding: 0px;
     font-size: 16px;
-    background-color: rgb(13, 192, 219);
+    background-color: hwb(240 0% 69%);
     color: white;
     transition: all 300ms;
 }
@@ -81,30 +81,33 @@ h2 {
 }
 
 #AgendaCita {
-  background-color: rgb(13, 192, 219);
+  background-color:  hwb(240 0% 69%);
 }
 
 #DatosCita {
   width: 30%;
   height: auto;
   margin: 0px auto;
-  border: 1px solid rgb(225, 225, 226), 0.8;
-  box-shadow: 0px 0px 10px #ccc;
+  border: 10px;
+  border-radius: 15px;
   margin-top: 60px;
-  margin-bottom: 15px;
   min-height: 500px;
   background: #fcfafa;
 }
 
+form {
+    padding: 20px; 
+  }
+
 #field2 {
-  padding: 20px;
+
   height: 480px;
 }
 
 #titulo {
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
-    background-color:rgb(13, 192, 219);
+    background-color: hwb(240 0% 69%);
     text-align: center;
     color: white;
 }
@@ -126,17 +129,18 @@ label{
 }
 
 #reg{
-    color: rgb(13, 192, 219);
+    color:  hwb(240 0% 69%);
 }
 
 
 #botonCita input[type="submit"]{
-  background-color: rgb(13, 192, 219);
+  margin-left: 2px;
+  background-color: hwb(240 0% 69%);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   size: 40px;
-  padding:  5px 180px;
+  padding: 5px 180px;
 }
 
 
@@ -146,13 +150,22 @@ label{
     margin-left: 5px;
 }
 
+#login{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    margin-top: -200px;
+    color: white;
+}
+
 #barra {
     text-decoration: none;
-    height: 100px;
+    height: 90px;
+    margin-top: -20px;
     display: flex;
-    border: 0.5px solid grey;
+    border: 0.5px solid white;
     align-items: center;
-    background-color: rgb(182, 181, 181);
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -171,7 +184,7 @@ label{
 }
 
 #barra a {
-    color: white;
+    color: hwb(240 0% 69%);
     padding: 15px;
     transition: all 200ms;
     border: 0.5px solid grey;
@@ -184,19 +197,31 @@ label{
 #container {
     margin: 0px auto;
     min-height: 900px;
-    background-color: rgb(13, 192, 219);
+    background-color: hwb(240 0% 69%);
     list-style: none;
-    margin-top: -50px;
+    margin-top: -12px;
 }
 
-.infoGeneral{
+#infoGeneral{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin-top: 300px;
 }
 
-.infoGeneral > h2{
+#infoGeneral > h2{
+    font-size: 40px;
+    color: white;
+}
+
+#infoRedes{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 300px;
+}
+
+#infoRedes > h2{
     font-size: 40px;
     color: white;
 }
@@ -214,17 +239,35 @@ label{
 
 .tituloCards {
     font-size: 30px;
-    background-color: grey;
+    background-color:hwb(240 0% 69%);
 }
 
-#cards{
+.cards{
     display: flex;
     background-color:grey;
-    color: white;
+    color: hwb(240 0% 69%);
     align-items: center;
     margin-top: -55px;
-    
+    background-image: url(../img/carrusel2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
+
+.card {
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+}
+
+.card-body {
+    padding: 20px; 
+}
+
+.card-title {
+    margin-top: 0; 
+}
+
 
 #cards > a {
     text-decoration: none;
@@ -246,7 +289,7 @@ label{
     margin-left: 20px;
     margin-right: -70px;
     text-decoration: none;
-    background-color: rgb(13, 192, 219);
+    background-color: hwb(240 0% 69%);
     color: white;
     transition: all 300ms;
     list-style: none;
@@ -260,7 +303,7 @@ label{
 
 #btnCard1 a:hover {
     background-color: white;
-    color: rgb(13, 192, 219);
+    color: hwb(240 0% 69%);
 }
 
 .card2{
@@ -278,7 +321,7 @@ label{
     margin-left: 30px;
     margin-right: -70px;
     text-decoration: none;
-    background-color: rgb(13, 192, 219);
+    background-color:  hwb(240 0% 69%);
     color: white;
     transition: all 300ms;
     list-style: none;
@@ -292,7 +335,7 @@ label{
 
 #btnCard2 a:hover {
     background-color: white;
-    color: rgb(13, 192, 219);
+    color:  hwb(240 0% 69%);
 }
 
 
@@ -337,7 +380,7 @@ label{
 
 #headerServicios {
     border: 0.5px solid;
-    background: rgb(13, 192, 219);
+    background:  hwb(240 0% 69%);
 }
 
 
@@ -375,7 +418,8 @@ h2 {
 }
 
 #infoAlDia{
-    margin-top: -180px;
+    margin-top: -100px;
+    height: 500px;
 }
 
 .contactenos{
@@ -389,13 +433,41 @@ h2 {
     align-items: center;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.dire{
+    margin-left: 50px;
 }
 
 .emergencias{
     align-items: center;
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 }
 
-p{
-    
+.mapa{
+    align-items: center;
+    text-align: center;
 }
+
+.footIndex{
+    height: 400px;
+    background-color: grey;
+}
+
+.imgFoot{
+
+}
+
+.redesFoot{
+
+}
+
+.infoFoot{
+    color:  hwb(240 0% 69%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
