@@ -237,7 +237,7 @@ label{
     text-align: justify;
 }
 
-.tituloCards {
+#tituloCards {
     font-size: 30px;
     background-color:hwb(240 0% 69%);
 }
@@ -248,16 +248,44 @@ label{
     color: hwb(240 0% 69%);
     align-items: center;
     margin-top: -55px;
-    background-image: url(../img/carrusel2.jpg);
+    background-image: url(../img/hospital.jpg);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
+.card1, .card2, .card7 {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+
+.card1 .card-body,
+.card2 .card-body,
+.card3 .card-body,
+.card4 .card-body,
+.card5 .card-body,
+.card6 .card-body,
+.card7 .card-body {
+    padding: 10px;
+}
+
+.card1 .card-title,
+.card2 .card-title,
+.card3 .card-title,
+.card4 .card-title,
+.card5 .card-title,
+.card6 .card-title,
+.card7 .card-title {
+    margin-top: 0;
+}
+
+
 .card {
     border: 1px solid #ccc; 
     border-radius: 5px; 
     margin-bottom: 20px; 
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .card-body {
@@ -455,14 +483,6 @@ h2 {
 .footIndex{
     height: 400px;
     background-color: grey;
-}
-
-.imgFoot{
-
-}
-
-.redesFoot{
-
 }
 
 .infoFoot{
