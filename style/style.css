@@ -540,7 +540,6 @@ h2 {
     width: 110px;
 }
 
-<<<<<<< HEAD
 #userTable {
     width: 100%;
     border-collapse: collapse;
@@ -565,12 +564,8 @@ h2 {
 
 #userTable tbody tr.selected {
     background-color: aqua;
-=======
-
-
-
+}
 
 #calendario{
     margin-top: -20px;
->>>>>>> d7f3352d6ec22045fb746872c7576a9f06e94572
 }
