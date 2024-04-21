@@ -86,12 +86,12 @@ h2 {
 
 #DatosCita {
   width: 30%;
-  height: auto;
+  height: 1000px;
   margin: 0px auto;
   border: 10px;
   border-radius: 15px;
-  margin-top: 60px;
-  min-height: 500px;
+  margin-top: 40px;
+  min-height: 700px;
   background: #fcfafa;
 }
 
@@ -100,8 +100,7 @@ form {
   }
 
 #field2 {
-
-  height: 480px;
+  height: 920px;
 }
 
 #titulo {
@@ -545,4 +544,12 @@ h2 {
     margin-top: 130px;
     font-size: 16px;
     width: 110px;
+}
+
+
+
+
+
+#calendario{
+    margin-top: -20px;
 }
