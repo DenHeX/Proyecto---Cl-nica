@@ -3,21 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const rolesDropdown = document.getElementById('rolesDropdown');
     const confirmButton = document.getElementById('confirmButton');
 
-    // Evento al hacer clic en una fila de la tabla
     userTable.addEventListener('click', function(event) {
         const selectedRow = event.target.closest('tr');
         if (selectedRow) {
-            // Remover la clase 'selected' de todas las filas
             const rows = userTable.querySelectorAll('tr');
             rows.forEach(row => row.classList.remove('selected'));
-            // Agregar la clase 'selected' a la fila seleccionada
             selectedRow.classList.add('selected');
         }
     });
 
-    // Evento al hacer clic en el botón "Confirmar"
     confirmButton.addEventListener('click', function() {
-        const selectedRole = rolesDropdown.options[rolesDropdown.selectedIndex].text; // Obtener texto del option seleccionado
+        const selectedRole = rolesDropdown.options[rolesDropdown.selectedIndex].text;
         const selectedRow = userTable.querySelector('tr.selected');
         if (selectedRow) {
             const userEmail = selectedRow.dataset.email;
@@ -31,19 +27,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Cargar usuarios al iniciar la página
     actualizarListaUsuarios();
 
-    // Función para actualizar la lista de usuarios en la tabla
     function actualizarListaUsuarios() {
         obtenerUsuarios()
             .then(usuarios => {
                 const tbody = userTable.querySelector('tbody');
-                tbody.innerHTML = ''; // Limpiar el contenido del tbody
+                tbody.innerHTML = '';
                 usuarios.forEach(usuario => {
                     const row = document.createElement('tr');
                     row.dataset.email = usuario.correo;
                     row.innerHTML = `
+                        <td>${usuario.nombre}</td>
+                        <td>${usuario.apellido}</td>
                         <td>${usuario.correo}</td>
                         <td>${usuario.rol}</td>
                     `;
@@ -55,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Función para obtener usuarios de la base de datos
     function obtenerUsuarios() {
         return new Promise((resolve, reject) => {
             const solicitud = indexedDB.open('usuariosDB', 1);
@@ -82,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Función para actualizar el rol de un usuario en la base de datos
     function actualizarRolUsuario(correo, nuevoRol) {
         return new Promise((resolve, reject) => {
             const solicitud = indexedDB.open('usuariosDB', 1);

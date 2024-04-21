@@ -1,27 +1,21 @@
-// Obtener referencia al formulario de registro
 const formularioRegistro = document.getElementById('registro');
 
-// Manejar el evento de envío del formulario
 formularioRegistro.addEventListener('submit', function(evento) {
-    evento.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+    evento.preventDefault();
 
-    // Obtener los valores de los campos del formulario
     const correo = formularioRegistro.elements.email1.value;
+    const nombre = formularioRegistro.elements.nombre.value;
+    const apellido = formularioRegistro.elements.apellido.value;
     const contraseña = formularioRegistro.elements.password1.value;
 
-    // Definir el rol por defecto
     const rol = 'Público';
 
-    // Verificar si el correo ya existe en la base de datos
     verificarCorreoExistente(correo)
         .then(existe => {
             if (!existe) {
-                // Si el correo no existe, guardar los datos en IndexedDB
-                guardarDatosUsuario(correo, contraseña, rol);
-                // Limpiar los campos del formulario después de enviar
+                guardarDatosUsuario(nombre, apellido, correo, contraseña, rol);
                 formularioRegistro.reset();
             } else {
-                // Si el correo ya existe, mostrar un mensaje de error o tomar otra acción adecuada
                 console.log('El correo ya está registrado.');
             }
         })
@@ -30,14 +24,12 @@ formularioRegistro.addEventListener('submit', function(evento) {
         });
 });
 
-// Función para verificar si el correo ya existe en la base de datos
 function verificarCorreoExistente(correo) {
     return new Promise((resolve, reject) => {
         const solicitud = indexedDB.open('usuariosDB', 1);
 
         solicitud.onupgradeneeded = function(evento) {
             const db = evento.target.result;
-            // Crear un almacén de objetos (object store) para los usuarios
             db.createObjectStore('usuarios', { keyPath: 'correo' });
         };
 
@@ -49,7 +41,7 @@ function verificarCorreoExistente(correo) {
 
             solicitudCorreo.onsuccess = function(evento) {
                 const resultado = evento.target.result;
-                resolve(!!resultado); // Devolver true si el correo ya existe, false si no
+                resolve(!!resultado);
             };
 
             solicitudCorreo.onerror = function(evento) {
@@ -63,13 +55,11 @@ function verificarCorreoExistente(correo) {
     });
 }
 
-// Función para guardar los datos en IndexedDB
-function guardarDatosUsuario(correo, contraseña, rol) {
+function guardarDatosUsuario(nombre, apellido, correo, contraseña, rol) {
     const solicitud = indexedDB.open('usuariosDB', 1);
 
     solicitud.onupgradeneeded = function(evento) {
         const db = evento.target.result;
-        // Crear un almacén de objetos (object store) para los usuarios
         db.createObjectStore('usuarios', { keyPath: 'correo' });
     };
 
@@ -77,7 +67,7 @@ function guardarDatosUsuario(correo, contraseña, rol) {
         const db = evento.target.result;
         const transaccion = db.transaction(['usuarios'], 'readwrite');
         const almacenObjetos = transaccion.objectStore('usuarios');
-        almacenObjetos.add({ correo: correo, contraseña: contraseña, rol: rol });
+        almacenObjetos.add({ nombre: nombre, apellido: apellido, correo: correo, contraseña: contraseña, rol: rol });
 
         transaccion.oncomplete = function() {
             console.log('Datos guardados correctamente en IndexedDB.');
