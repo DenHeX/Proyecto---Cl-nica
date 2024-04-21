@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Cita</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
 </head>
 <body id="AgendaCita">
 
@@ -31,9 +35,7 @@
                 </header>
                 <br><br>
 
-                <p class="des">Ingresa tu número de identificación y fecha de nacimiento. 
-                Si eres extranjero ingresa tu número de carné de residente y fecha de nacimiento.
-                </p>
+                <p class="des">Ingresa tu Nombre, Apellidos y número de teléfono. También selecciona la fecha, hora, especialidad y médico asignado.</p>
                 <br><br>
 
                 <label for="name">Nombre: </label>
@@ -51,15 +53,65 @@
                 <input type="telefono" id="telefono" name="telefono" placeholder="Num telefono" required="true">
                 <br><br>
 
-                <input type=""> 
+                <label for="dropdownFecha">Seleccione su fecha:</label>
+                <br>
+                <input type="text" id="dropdownFecha" placeholder="Seleccione su fecha" required="true">
+
 
                 <br><br>
 
-                <div id="botonCita">
-                    <input type="submit" value="Ingresar" />
-                </div>
-
+                <label for="hora">Hora:</label>
+                <br>
+                <select id="hora" name="hora">
+                    <option value="08:00">08:00 AM</option>
+                    <option value="08:30">08:30 AM</option>
+                    <option value="08:30">09:00 AM</option>
+                    <option value="08:30">09:30 AM</option>
+                    <option value="08:30">10:00 AM</option>
+                    <option value="08:30">10:30 AM</option>
+                    <option value="08:30">11:00 AM</option>
+                    <option value="08:30">11:30 AM</option>
+                    <option value="08:30">12:00 PM</option>
+                    <option value="08:30">12:30 PM</option>
+                    <option value="08:30">1:00 PM</option>
+                    <option value="08:30">1:30 PM</option>
+                    <option value="08:30">2:00 PM</option>
+                    <option value="08:30">2:30 PM</option>
+                    <option value="08:30">3:00 PM</option>
+                    <option value="08:30">3:30 PM</option>
+                    <option value="08:30">4:00 PM</option>
+                    <option value="08:30">4:30 PM</option>
+                    <option value="08:30">5:00 PM</option>
+                    
+                    
+                </select>
                 <br><br>
+
+                <label for="especialidad">Especialidad:</label>
+                <br>
+                <select id="especialidad" name="especialidad">
+                    <option value="Medicina General">Medicina General</option>
+                    <option value="Pediatría">Pediatría</option>
+                    <option value="Ginecología">Ginecología</option>
+                    <option value="Dermatología">Dermatología</option>
+                    <option value="Oftalmología">Oftalmología</option>
+                    <option value="Ortopedia">Ortopedia</option>
+                    <option value="Cardiología">Cardiología</option>
+                    
+                </select>
+                <br><br>
+
+                <label for="medico">Médico Asignado:</label>
+                <br>
+                <select id="medico" name="medico">
+                    <option value="Dr. Juan Pérez">Dr. Juan Pérez</option>
+                    <option value="Dra. María Rodríguez">Dra. María Rodríguez</option>
+                    
+                </select>
+                <br><br>
+
+                <input type="submit" value="Ingresar" style="font-size: 16px;" height="30px"/>
+                <br><br><br>
 
                 <div class="reg">
                     ¿Eres un paciente nuevo? <a href="" id="reg">Regístrate aquí</a>
@@ -73,10 +125,28 @@
 
         
     </div>
+    <script>
+        flatpickr("#dropdownFecha", {
+            enable: [
+                function(date) {
+                    return true;
+                }
+            ],
+            inline: true, 
+            dateFormat: "Y-m-d", 
+            minDate: "today", 
+            locale: "es", 
+            static: true 
+        });
+        var calendarioContainer = document.getElementById("calendarioContainer");
+    
+        var anchoFormulario = document.getElementById("formulario").offsetWidth;
+    
+        calendarioContainer.style.width = anchoFormulario + "70px";
+    
+        calendarioContainer.style.maxWidth = "80px"; 
+    </script>
     
     
-
-
-
 </body>
 </html>

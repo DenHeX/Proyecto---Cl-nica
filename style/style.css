@@ -86,12 +86,12 @@ h2 {
 
 #DatosCita {
   width: 30%;
-  height: auto;
+  height: 1000px;
   margin: 0px auto;
   border: 10px;
   border-radius: 15px;
-  margin-top: 60px;
-  min-height: 500px;
+  margin-top: 40px;
+  min-height: 700px;
   background: #fcfafa;
 }
 
@@ -100,8 +100,7 @@ form {
   }
 
 #field2 {
-
-  height: 480px;
+  height: 920px;
 }
 
 #titulo {
@@ -541,6 +540,7 @@ h2 {
     width: 110px;
 }
 
+<<<<<<< HEAD
 #userTable {
     width: 100%;
     border-collapse: collapse;
@@ -565,4 +565,12 @@ h2 {
 
 #userTable tbody tr.selected {
     background-color: aqua;
+=======
+
+
+
+
+#calendario{
+    margin-top: -20px;
+>>>>>>> d7f3352d6ec22045fb746872c7576a9f06e94572
 }

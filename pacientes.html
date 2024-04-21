@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pacientes</title>
+    <link rel="stylesheet" href="style/pacientes.css">
+</head>
+<body id="pacientes">
+    <h1>Gestión de Pacientes</h1>
+
+    <h2>Datos Personales del Paciente</h2>
+    <form id="formPaciente">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br><br>
+
+        <label for="identificacion">Identificación:</label>
+        <input type="text" id="identificacion" name="identificacion" required><br><br>
+
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" step="0.01" required><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required><br><br>
+
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" required><br><br>
+
+        <label for="enfermedades">Enfermedades:</label>
+        <input type="text" id="enfermedades" name="enfermedades"><br><br>
+
+        <label for="tipoSangre">Tipo de Sangre:</label>
+        <input type="text" id="tipoSangre" name="tipoSangre"><br><br>
+
+        <label for="alergias">Alergias a Medicamentos:</label>
+        <input type="text" id="alergias" name="alergias"><br><br>
+
+        <h2>Contactos de Emergencia</h2>
+        <div id="contactosEmergencia">
+            <!-- Los contactos de emergencia se agregarán dinámicamente aquí -->
+        </div>
+        <button type="button" onclick="agregarContacto()">Agregar Contacto</button><br><br>
+
+        <input type="submit" value="Registrar Paciente">
+    </form>
+
+    <!-- Script para agregar dinámicamente contactos de emergencia -->
+    <script>
+        function agregarContacto() {
+            var divContacto = document.createElement("div");
+
+            var labelNombre = document.createElement("label");
+            labelNombre.textContent = "Nombre Completo:";
+            divContacto.appendChild(labelNombre);
+
+            var inputNombre = document.createElement("input");
+            inputNombre.type = "text";
+            inputNombre.name = "nombreContacto[]";
+            divContacto.appendChild(inputNombre);
+
+            var labelRelacion = document.createElement("label");
+            labelRelacion.textContent = "Relación Familiar:";
+            divContacto.appendChild(labelRelacion);
+
+            var inputRelacion = document.createElement("input");
+            inputRelacion.type = "text";
+            inputRelacion.name = "relacionContacto[]";
+            divContacto.appendChild(inputRelacion);
+
+            var labelTelefono = document.createElement("label");
+            labelTelefono.textContent = "Teléfono:";
+            divContacto.appendChild(labelTelefono);
+
+            var inputTelefono = document.createElement("input");
+            inputTelefono.type = "tel";
+            inputTelefono.name = "telefonoContacto[]";
+            divContacto.appendChild(inputTelefono);
+
+            var labelDireccion = document.createElement("label");
+            labelDireccion.textContent = "Dirección:";
+            divContacto.appendChild(labelDireccion);
+
+            var inputDireccion = document.createElement("input");
+            inputDireccion.type = "text";
+            inputDireccion.name = "direccionContacto[]";
+            divContacto.appendChild(inputDireccion);
+
+            document.getElementById("contactosEmergencia").appendChild(divContacto);
+        }
+    </script>
+</body>
+</html>
