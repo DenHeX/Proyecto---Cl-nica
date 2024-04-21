@@ -196,7 +196,7 @@ label{
 
 #container {
     margin: 0px auto;
-    min-height: 900px;
+    min-height: 741px;
     background-color: hwb(240 0% 69%);
     list-style: none;
     margin-top: -12px;
@@ -491,3 +491,58 @@ h2 {
     font-size: 14px;
 }
 
+
+
+
+
+
+.container {
+    
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;
+    margin-top: 50px; 
+}
+
+.slider {
+    color: hwb(240 0% 69%);
+    background-color: white;
+    margin-left: 350px;
+    width: 40%; 
+    height: 200px; 
+    overflow: auto; 
+    border: 1px solid #ccc; 
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.person-item {
+    margin: 5px;
+}
+
+.roles-dropdown {
+    display: inline-block;
+    margin-left: 30px;
+    width: 100%; 
+    max-width: 300px; 
+    margin-top: 10px;
+}
+
+#rolesDropdown {
+    font-size: 16px; 
+}
+
+#rolesDropdown option {
+    font-size: 16px; 
+    padding: 5px 10px; 
+}
+
+#confirmButton {
+    display: block; 
+    margin-top: 130px;
+    font-size: 16px;
+    width: 110px;
+}
