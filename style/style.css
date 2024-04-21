@@ -196,7 +196,7 @@ label{
 
 #container {
     margin: 0px auto;
-    min-height: 741px;
+    min-height: 999px;
     background-color: hwb(240 0% 69%);
     list-style: none;
     margin-top: -12px;
@@ -491,13 +491,7 @@ h2 {
     font-size: 14px;
 }
 
-
-
-
-
-
 .container {
-    
     display: flex;
     justify-content: center; 
     align-items: flex-start;
@@ -545,4 +539,30 @@ h2 {
     margin-top: 130px;
     font-size: 16px;
     width: 110px;
+}
+
+#userTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#userTable th,
+#userTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#userTable th {
+    background-color: #f2f2f2;
+}
+
+#userTable tbody tr:hover {
+    background-color: aqua;
+    cursor: pointer;
+}
+
+#userTable tbody tr.selected {
+    background-color: aqua;
 }

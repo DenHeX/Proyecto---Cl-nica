@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Slide Navbar</title>
-	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
     <link href="./style/login.css" rel="stylesheet">
 </head>
 <body>
@@ -10,28 +9,23 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
+				<form id="registro">
 					<label for="chk" aria-hidden="true">Registrarse</label>
-					<input type="email" name="email" placeholder="Correo electrónico" required="">
-					<input type="password" name="pswd" placeholder="Contraseña" required="">
-                    <select id="role">
-                        <option value="public">Público</option>
-                        <option value="medic">Médico</option>
-                        <option value="recep">Recepcionista</option>
-                        <option value="admin">Administrador</option>
-                    </select>
-					<button>Registrar</button>
+					<input type="email" name="email1" placeholder="Correo electrónico">
+					<input type="password" name="password1" placeholder="Contraseña">
+					<button type="submit">Registrar</button>
 				</form>
 			</div>
 
 			<div class="login">
 				<form>
 					<label for="chk" aria-hidden="true">Iniciar Sesión</label>
-					<input type="email" name="email" placeholder="Correo electrónico" required="">
-					<input type="password" name="pswd" placeholder="Contraseña" required="">
+					<input type="email" name="email2" placeholder="Correo electrónico" required="">
+					<input type="password" name="password2" placeholder="Contraseña" required="">
 					<button>Iniciar Sesión</button>
 				</form>
 			</div>
 	</div>
+	<script src="./javascript/login.js"></script>
 </body>
 </html>
