@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo de Consulta Médica</title>
+  <link rel="stylesheet" href="style/ConsultaMedica.css">
+</head>
+<body>
+
+    <h1>Módulo de Consulta Médica</h1>
+
+    <div class="container">
+        <select id="pacientes">
+            <option value="">Selecciona un paciente</option>
+            <option value="1">Paciente 1</option>
+            <option value="2">Paciente 2</option>
+            <option value="3">Paciente 3</option>
+        </select>
+
+        <br><br>
+        
+        <form id="consultaForm">
+        <h2>Información del Paciente</h2>
+        <br>
+        <label for="presion">Presión Arterial:</label>
+        <input type="text" id="presion" name="presion" required>
+        <br><br>
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" step="0.01" required>
+        <br><br>
+        <label for="altura">Altura (cm):</label>
+        <input type="number" id="altura" name="altura" step="0.01" required>
+        <br><br>
+        <label for="sintomas">Síntomas:</label>
+        <textarea id="sintomas" name="sintomas" required></textarea>
+
+        <button type="submit">Guardar Consulta</button>
+        </form>
+    </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
