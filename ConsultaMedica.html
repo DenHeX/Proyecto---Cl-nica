@@ -8,21 +8,13 @@
 </head>
 <body>
 
-    <h1>Módulo de Consulta Médica</h1>
-
-    <div class="container">
-        <select id="pacientes">
-            <option value="">Selecciona un paciente</option>
-            <option value="1">Paciente 1</option>
-            <option value="2">Paciente 2</option>
-            <option value="3">Paciente 3</option>
-        </select>
-
-        <br><br>
-        
+    <h1>Consulta Médica - Enfermería</h1>
         <form id="consultaForm">
         <h2>Información del Paciente</h2>
         <br>
+        <label for="nombre completo">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
         <label for="presion">Presión Arterial:</label>
         <input type="text" id="presion" name="presion" required>
         <br><br>
@@ -39,6 +31,6 @@
         </form>
     </div>
 
-  <script src="scripts.js"></script>
+  <script src="javascript/consulta.js"></script>
 </body>
 </html>

@@ -10,18 +10,15 @@
 </head>
 <body>
 
-    <h1>Consulta Médica</h1>
+    <h1>Consulta Médica - Doctor</h1>
 
     <div class="container">
 
         <select id="pacientes">
             <option value="">Selecciona un paciente</option>
-            <option value="1">Paciente 1</option>
-            <option value="2">Paciente 2</option>
-            <option value="3">Paciente 3</option>
         </select>
 
-        <form id="consultaForm">
+        <form id="consultaForm1">
         <div class="column">
             <label for="presion">Presión Arterial:</label>
             <input type="text" id="presion" name="presion" required>
@@ -60,7 +57,7 @@
 
         <br><br><br><br>
 
-        <form id="consultaForm">
+        <form id="consultaForm2">
         <div class="column">
             <h2>Examen de sangre</h2>
             <br>
@@ -124,7 +121,7 @@
         <section id="infoDatos">
             <div class="containerDatos">
                 <table id="tableDatos" class="table table-striped">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                         <tr>
                             <th>Presión Arterial</th>
                             <th>Peso (kg)</th>
@@ -135,22 +132,10 @@
                     <tbody>
                     </tbody>
                 </table>
-                <div class="datos-dropdown">
-                    <select id="datosDropdown" class="form-control">
-                        <option value="">Seleccione el paciente</option>
-                        <option value="1">Paciente 1</option>
-                        <option value="2">Paciente 2</option>
-                        <option value="3">Paciente 3</option>
-                    </select>
-
-                    <br><br><br><br>
-
-                    <button id="confirmButtonDatos" class="btn btn-primary">Confirmar</button>
-                </div>
             </div>
         </section>
     </div>
 
-  <script src="scripts.js"></script>
+  <script src="javascript/consultaMedico.js"></script>
 </body>
 </html>
