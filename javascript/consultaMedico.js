@@ -4,13 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const consultaForm2 = document.getElementById("consultaForm2");
     const tableBody = document.querySelector("#tableDatos tbody");
 
-    // Cargar las consultas en el select al cargar la página
+
     cargarConsultas();
 
-    // Cargar datos de la última consulta seleccionada, si existe
     cargarDatosDesdeLocalStorage();
 
-    // Evento al cambiar el paciente seleccionado en el select
     pacientesSelect.addEventListener("change", function() {
         const selectedConsultaId = pacientesSelect.value;
         if (selectedConsultaId !== "") {
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Evento de envío del formulario 1 (Actualizar)
     consultaForm1.addEventListener("submit", function(event) {
         event.preventDefault();
         const selectedConsultaId = pacientesSelect.value;
@@ -27,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Evento de envío del formulario 2 (Guardar Consulta)
     consultaForm2.addEventListener("submit", function(event) {
         event.preventDefault();
         const consulta = obtenerDatosFormulario(consultaForm2);
@@ -36,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Función para cargar las consultas en el select
     function cargarConsultas() {
         const dbNombre = "consultasDB";
         const request = window.indexedDB.open(dbNombre, 1);
@@ -50,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (!db.objectStoreNames.contains("consultas")) {
                 const objectStore = db.createObjectStore("consultas", { keyPath: "id", autoIncrement: true });
                 objectStore.createIndex("nombre", "nombre", { unique: false });
-                // Añadir aquí los índices necesarios para otros campos si es necesario
+   
             }
         };
     
@@ -73,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
 
-    // Función para cargar los datos de la consulta seleccionada en los formularios y la tabla
+
     function cargarDatosConsulta(consultaId) {
         const dbNombre = "consultasDB";
         const request = window.indexedDB.open(dbNombre, 1);
@@ -91,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
             getRequest.onsuccess = function(event) {
                 const consulta = event.target.result;
                 if (consulta) {
-                    // Autocompletar los campos del formulario 1
+          
                     consultaForm1.elements["presion"].value = consulta.presion;
                     consultaForm1.elements["peso"].value = consulta.peso;
                     consultaForm1.elements["altura"].value = consulta.altura;
@@ -99,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     consultaForm1.elements["diagnostico"].value = consulta.diagnostico;
                     consultaForm1.elements["medicamentos"].value = consulta.medicamentos;
                     consultaForm1.elements["examenes"].value = consulta.examenes;
-                    // Autocompletar los campos del formulario 2
+              
                     consultaForm2.elements["Hemoglobina"].value = consulta.hemoglobina || "";
                     consultaForm2.elements["Hematocrito"].value = consulta.hematocrito || "";
                     consultaForm2.elements["Triglicéridoss"].value = consulta.trigliceridoss || "";
@@ -111,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     consultaForm2.elements["Color"].value = consulta.color || "";
                     consultaForm2.elements["Leucocitos"].value = consulta.leucocitos || "";
 
-                    // Limpiar la tabla antes de cargar nuevos datos
+             
                     tableBody.innerHTML = "";
 
-                    // Insertar los datos de la consulta en la tabla
+            
                     tableBody.innerHTML += `
                         <tr>
                             <td>${consulta.presion}</td>
@@ -124,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         </tr>
                     `;
 
-                    // Guardar la ID de la consulta seleccionada en localStorage
                     localStorage.setItem("lastConsultaId", consultaId);
                 } else {
                     console.error("No se encontró la consulta con ID:", consultaId);
@@ -133,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-    // Función para obtener los datos del formulario
+
     function obtenerDatosFormulario(formulario) {
         const consulta = {};
         const inputs = formulario.querySelectorAll("input, textarea, select");
@@ -143,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return consulta;
     }
 
-    // Función para actualizar la consulta en la base de datos
+
     function actualizarConsulta(consultaId, formulario) {
         const dbNombre = "consultasDB";
         const request = window.indexedDB.open(dbNombre, 1);
@@ -162,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const consulta = event.target.result;
                 if (consulta) {
                     const nuevosDatos = obtenerDatosFormulario(formulario);
-                    // Actualizar los datos de la consulta con los nuevos datos del formulario
+           
                     Object.assign(consulta, nuevosDatos);
                     const updateRequest = objectStore.put(consulta);
                     updateRequest.onsuccess = function(event) {
@@ -178,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-    // Función para guardar una nueva consulta en la base de datos
+
     function guardarConsulta(consulta) {
         const dbNombre = "consultasDB";
         const request = window.indexedDB.open(dbNombre, 1);
@@ -191,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const db = event.target.result;
             const objectStore = db.createObjectStore("consultas", { keyPath: "id", autoIncrement: true });
             objectStore.createIndex("nombre", "nombre", { unique: false });
-            // Añadir aquí los índices necesarios para otros campos si es necesario
+     
         };
 
         request.onsuccess = function(event) {
@@ -204,9 +198,9 @@ document.addEventListener("DOMContentLoaded", function() {
             addRequest.onsuccess = function(event) {
                 console.log("Consulta guardada exitosamente.");
                 pacientesSelect.innerHTML = "<option value=''>Selecciona un paciente</option>";
-                cargarConsultas(); // Actualizar la lista de pacientes en el select
-                pacientesSelect.value = ""; // Limpiar la selección después de guardar
-                consultaForm2.reset(); // Limpiar el formulario después de guardar
+                cargarConsultas(); 
+                pacientesSelect.value = ""; 
+                consultaForm2.reset(); 
             };
 
             addRequest.onerror = function(event) {
@@ -215,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-    // Función para cargar los datos de la última consulta seleccionada desde localStorage
     function cargarDatosDesdeLocalStorage() {
         const lastConsultaId = localStorage.getItem("lastConsultaId");
         if (lastConsultaId) {

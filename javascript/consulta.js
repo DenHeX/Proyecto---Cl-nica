@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             addRequest.onsuccess = function(event) {
                 console.log("Consulta guardada exitosamente.");
-                form.reset(); // Resetear el formulario después de guardar la consulta
+                form.reset(); 
             };
 
             addRequest.onerror = function(event) {

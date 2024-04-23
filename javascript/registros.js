@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const especialidadesDiv = document.getElementById('especialidades');
     const confirmEspecialidadButton = document.getElementById('confirmEspecialidadButton');
 
-    let usuariosConRolMedico = new Set(); // Almacena los correos de los usuarios que tienen el rol de Médico
-    let usuariosConEspecialidad = new Set(); // Almacena los correos de los usuarios que tienen una especialidad
+    let usuariosConRolMedico = new Set(); 
+    let usuariosConEspecialidad = new Set(); 
 
-    // Función para cargar los usuarios y actualizar los conjuntos de usuarios con roles y especialidades
+
     function cargarUsuarios() {
         obtenerUsuarios()
             .then(usuarios => {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Cargar usuarios al cargar la página
+
     cargarUsuarios();
 
     userTable.addEventListener('click', function(event) {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (selectedRole !== 'Médico') {
                             confirmEspecialidadButton.disabled = true;
                         }
-                        cargarUsuarios(); // Cargar usuarios después de cambiar el rol
+                        cargarUsuarios();
                     })
                     .catch(error => {
                         console.error('Error al actualizar el rol del usuario:', error);
@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmEspecialidadButton.addEventListener('click', function() {
         const selectedRow = userTable.querySelector('tr.selected');
         if (selectedRow && selectedRow.querySelector('td:nth-child(4)').textContent.trim() === 'Médico') {
-            const userEmailCell = selectedRow.querySelector('td:nth-child(3)'); // Obtener la celda que contiene el correo electrónico
-            const userEmail = userEmailCell.textContent.trim(); // Obtener el contenido de la celda (correo electrónico)
+            const userEmailCell = selectedRow.querySelector('td:nth-child(3)'); 
+            const userEmail = userEmailCell.textContent.trim(); 
             const selectedEspecialidad = especialidadesDropdown.options[especialidadesDropdown.selectedIndex].text;
             if (selectedEspecialidad) {
                 if (!usuariosConEspecialidad.has(userEmail)) {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     especialidadesDropdown.disabled = true;
                     agregarEspecialidadAMedico(userEmail, selectedEspecialidad)
                         .then(() => {
-                            cargarUsuarios(); // Actualizar usuarios después de cambiar la especialidad
+                            cargarUsuarios(); 
                             especialidadesDiv.style.display = 'none';
                         })
                         .catch(error => {

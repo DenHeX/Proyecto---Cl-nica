@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const formPaciente = document.getElementById('formPaciente');
     const pacientesDropdown = document.getElementById('pacientesDropdown');
-    const btnCargar = document.getElementById('cargar'); // Obtener referencia al botón de cargar
+    const btnCargar = document.getElementById('cargar'); 
 
-    // Cargar pacientes al cargar la página
     cargarPacientes();
 
-    // Función para cargar los pacientes desde la base de datos
+
     function cargarPacientes() {
         obtenerCitas()
             .then(citas => {
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Obtener citas desde la base de datos
     function obtenerCitas() {
         return new Promise((resolve, reject) => {
             const solicitud = indexedDB.open('citasDB', 1);
@@ -44,32 +42,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Actualizar opciones de pacientes en el dropdown
+
     function actualizarDropdownPacientes(citas) {
         pacientesDropdown.innerHTML = '';
         citas.forEach(cita => {
             const option = document.createElement('option');
             option.textContent = `${cita.nombre} ${cita.apellido}`;
-            option.value = cita.id; // Almacenar el ID de la cita en el value
+            option.value = cita.id; 
             pacientesDropdown.appendChild(option);
         });
     }
 
     formPaciente.addEventListener('submit', function(event) {
         event.preventDefault();
-        cargarDatosPaciente(); // Llamar a la función para cargar los datos del paciente
+        cargarDatosPaciente(); 
     });
 
-    // Función para cargar los datos del paciente seleccionado
+
     function cargarDatosPaciente() {
         const pacienteId = pacientesDropdown.value;
         const pacienteSeleccionado = pacientesDropdown.options[pacientesDropdown.selectedIndex].textContent;
     
-        // Obtener la cita correspondiente al paciente seleccionado
+
         obtenerCitaPorId(pacienteId)
             .then(cita => {
                 if (cita) {
-                    // Autocompletar los campos del formulario con los datos de la cita
+
                     document.getElementById('nombre').value = cita.nombre || '';
                     document.getElementById('apellidos').value = cita.apellido || '';
                     document.getElementById('telefono').value = cita.telefono || '';
@@ -80,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('tipoSangre').value = cita.tipoSangre || '';
                     document.getElementById('alergias').value = cita.alergias || '';
     
-                    // Autocompletar los contactos de emergencia
+  
                     const contactosEmergencia = document.getElementById('contactosEmergencia');
-                    contactosEmergencia.innerHTML = ''; // Limpiar los contactos previos
+                    contactosEmergencia.innerHTML = ''; 
                     cita.contactosEmergencia.forEach(contacto => {
                         const divContacto = document.createElement('div');
                         const labelNombre = document.createElement('label');
@@ -93,10 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         inputNombre.name = 'nombreContacto[]';
                         inputNombre.value = contacto.nombre || '';
                         divContacto.appendChild(inputNombre);
-    
-                        // Continuar con el resto de campos del contacto (relación, teléfono, dirección)
-                        // ...
-    
+
                         contactosEmergencia.appendChild(divContacto);
                     });
                 } else {
@@ -107,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
     
-    // Obtener una cita por su ID desde la base de datos
+
     function obtenerCitaPorId(id) {
         return new Promise((resolve, reject) => {
             const solicitud = indexedDB.open('citasDB', 1);
@@ -134,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Agregar evento de clic al botón de cargar
+
     btnCargar.addEventListener('click', function() {
-        cargarDatosPaciente(); // Llamar a la función para cargar los datos del paciente
+        cargarDatosPaciente(); 
     });
 });
