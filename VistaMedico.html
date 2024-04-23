@@ -13,93 +13,86 @@
     <h1>Consulta Médica</h1>
 
     <div class="container">
-        <div class="row">
-            <select id="pacientes">
-                <option value="">Selecciona un paciente</option>
-                <option value="1">Paciente 1</option>
-                <option value="2">Paciente 2</option>
-                <option value="3">Paciente 3</option>
-            </select>
 
-            <div class="col-6">
-                <form id="consultaForm">
-                    <div class="column">
-                        <label for="presion">Presión Arterial:</label>
-                        <input type="text" id="presion" name="presion" required>
-                    </div>
-                    <div class="column">
-                        <label for="peso">Peso (kg):</label>
-                        <input type="number" id="peso" name="peso" step="0.01" required>
-                    </div>
-                    <div class="column">
-                        <label for="altura">Altura (cm):</label>
-                        <input type="number" id="altura" name="altura" step="0.01" required>
-                    </div>
-                    <div class="column">
-                        <label for="sintomas">Síntomas:</label>
-                        <textarea id="sintomas" name="sintomas" required></textarea>
-                    </div>
-                    <div class="column">
-                        <label for="diagnostico">Diagnóstico:</label>
-                        <textarea id="diagnostico" name="diagnostico" required></textarea>
-                    </div>
-                    <div class="column">
-                        <label for="medicamentos">Medicamentos:</label>
-                        <textarea id="medicamentos" name="medicamentos"></textarea>
-                    </div>
-                    <div class="column">
-                        <label for="examenes">Exámenes Recetados:</label>
-                        <select id="examenes" name="examenes">
-                        <option value="">Ninguno</option>
-                        <option value="sangre">Examen de Sangre</option>
-                        <option value="orina">Examen de Orina</option>
-                        <option value="ambos">Examen de Sangre y Orina</option>
-                        </select>
-                    </div>
-                    <button type="submit">Guardar Consulta</button>
-                    </form>
-            </div>
-    
-            <br><br>
-    
-            <div class="col-6">
-                
-            </div>
+        <select id="pacientes">
+            <option value="">Selecciona un paciente</option>
+            <option value="1">Paciente 1</option>
+            <option value="2">Paciente 2</option>
+            <option value="3">Paciente 3</option>
+        </select>
 
-            <header id="headDatosAnteriores">
-                <br><br>
-                <div id="tituloDatos">
-                    <h1>Datos de pacientes registrados</h1>
-                </div>
-            </header>
-            <br><br>
-            <section id="infoDatos">
-                <div class="containerDatos">
-                    <table id="tableDatos" class="table table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Presión Arterial</th>
-                                <th>Peso (kg)</th>
-                                <th>Altura (cm)</th>
-                                <th>Síntomas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                    <div class="datos-dropdown">
-                        <select id="datosDropdown" class="form-control">
-                            <option value="">Seleccione el paciente</option>
-                            <option value="1">Paciente 1</option>
-                            <option value="2">Paciente 2</option>
-                            <option value="3">Paciente 3</option>
-                        </select>
-                        <br><br><br><br><br><br>
-                        <button id="confirmButtonDatos" class="btn btn-primary">Confirmar</button>
-                    </div>
-                </div>
-            </section>
+        <form id="consultaForm">
+        <div class="column">
+            <label for="presion">Presión Arterial:</label>
+            <input type="text" id="presion" name="presion" required>
         </div>
+        <div class="column">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" step="0.01" required>
+        </div>
+        <div class="column">
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" name="altura" step="0.01" required>
+        </div>
+        <div class="column">
+            <label for="sintomas">Síntomas:</label>
+            <textarea id="sintomas" name="sintomas" required></textarea>
+        </div>
+        <div class="column">
+            <label for="diagnostico">Diagnóstico:</label>
+            <textarea id="diagnostico" name="diagnostico" required></textarea>
+        </div>
+        <div class="column">
+            <label for="medicamentos">Medicamentos:</label>
+            <textarea id="medicamentos" name="medicamentos"></textarea>
+        </div>
+        <div class="column">
+            <label for="examenes">Exámenes Recetados:</label>
+            <select id="examenes" name="examenes">
+            <option value="">Ninguno</option>
+            <option value="sangre">Examen de Sangre</option>
+            <option value="orina">Examen de Orina</option>
+            <option value="ambos">Examen de Sangre y Orina</option>
+            </select>
+        </div>
+        <button type="submit">Guardar Consulta</button>
+        </form>
+
+        <br><br>
+
+        <header id="headDatosAnteriores">
+            <br><br>
+            <div id="tituloDatos">
+                <h1>Datos de pacientes registrados</h1>
+            </div>
+        </header>
+        <br><br>
+        <section id="infoDatos">
+            <div class="containerDatos">
+                <table id="tableDatos" class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Presión Arterial</th>
+                            <th>Peso (kg)</th>
+                            <th>Altura (cm)</th>
+                            <th>Síntomas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="datos-dropdown">
+                    <select id="datosDropdown" class="form-control">
+                        <option value="">Seleccione el paciente</option>
+                        <option value="1">Paciente 1</option>
+                        <option value="2">Paciente 2</option>
+                        <option value="3">Paciente 3</option>
+                    </select>
+                    <br><br><br><br><br><br>
+                    <button id="confirmButtonDatos" class="btn btn-primary">Confirmar</button>
+                </div>
+            </div>
+        </section>
     </div>
 
   <script src="scripts.js"></script>
