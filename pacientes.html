@@ -13,8 +13,8 @@
     <br>
     <div class="pacientes-dropdown">
         <select id="pacientesDropdown">
-            <option value="">PACIENTES</option>
         </select>
+        <input type="submit" value="Cargar" id="cargar">
     </div>
     <br><br>
     <form id="formPaciente">
@@ -24,8 +24,8 @@
         <label for="apellidos">Apellidos:</label>
         <input type="text" id="apellidos" name="apellidos" required><br><br>
 
-        <label for="identificacion">Identificación:</label>
-        <input type="text" id="identificacion" name="identificacion" required><br><br>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required><br><br>
 
         <label for="peso">Peso (kg):</label>
         <input type="number" id="peso" name="peso" step="0.01" required><br><br>
@@ -51,7 +51,8 @@
         </div>
         <button type="button" onclick="agregarContacto()">Agregar Contacto</button><br><br>
 
-        <input type="submit" value="Registrar Paciente">
+        <input type="submit" value="Confirmar Datos">
+        <input type="submit" value="Eliminar Datos">
     </form>
 
     <script>
@@ -97,5 +98,6 @@
             document.getElementById("contactosEmergencia").appendChild(divContacto);
         }
     </script>
+    <script src="javascript/pacientes.js"></script>
 </body>
 </html>

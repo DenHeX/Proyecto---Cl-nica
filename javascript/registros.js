@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         usuariosConRolMedico.add(usuario.correo);
                         row.querySelector('td:nth-child(4)').setAttribute('disabled', 'disabled');
                     }
-                    if (usuario.especialidades && usuario.especialidades.length > 0) {
+                    if (usuario.especialidad && usuario.especialidad.length > 0) {
                         usuariosConEspecialidad.add(usuario.correo);
                     }
                 });
@@ -64,49 +64,60 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     confirmButton.addEventListener('click', function() {
-        const selectedRole = rolesDropdown.options[rolesDropdown.selectedIndex].text;
         const selectedRow = userTable.querySelector('tr.selected');
         if (selectedRow) {
-            const userEmail = selectedRow.dataset.email;
-            if (selectedRole === 'Médico') {
-                usuariosConRolMedico.add(userEmail);
-                rolesDropdown.disabled = true;
-            }
-            actualizarRolUsuario(userEmail, selectedRole)
-                .then(() => {
-                    if (selectedRole !== 'Médico') {
-                        especialidadesDiv.style.display = 'none';
-                    }
-                    cargarUsuarios(); // Actualizar usuarios después de cambiar el rol
-                })
-                .catch(error => {
-                    console.error('Error al actualizar el rol del usuario:', error);
-                });
-        }
-    });
-
-    confirmEspecialidadButton.addEventListener('click', function() {
-        const selectedRow = userTable.querySelector('tr.selected');
-        const userEmail = selectedRow.dataset.email;
-        const selectedEspecialidad = especialidadesDropdown.options[especialidadesDropdown.selectedIndex].text;
-        if (selectedRow && selectedRow.querySelector('td:nth-child(4)').textContent.trim() === 'Médico' && selectedEspecialidad) {
-            if (!usuariosConEspecialidad.has(userEmail)) { // Verificar si el usuario ya tiene una especialidad asignada
-                usuariosConEspecialidad.add(userEmail);
-                especialidadesDropdown.disabled = true;
-                agregarEspecialidadAMedico(userEmail, selectedEspecialidad)
+            const userEmailCell = selectedRow.querySelector('td:nth-child(3)');
+            const userEmail = userEmailCell.textContent.trim();
+            if (!usuariosConRolMedico.has(userEmail)) {
+                const selectedRole = rolesDropdown.options[rolesDropdown.selectedIndex].text;
+                if (selectedRole === 'Médico') {
+                    usuariosConRolMedico.add(userEmail);
+                    rolesDropdown.disabled = true;
+                    especialidadesDiv.style.display = 'block';
+                } else {
+                    rolesDropdown.disabled = false;
+                    especialidadesDiv.style.display = 'none';
+                }
+                actualizarRolUsuario(userEmail, selectedRole)
                     .then(() => {
-                        cargarUsuarios(); // Actualizar usuarios después de cambiar la especialidad
-                        especialidadesDiv.style.display = 'none';
+                        if (selectedRole !== 'Médico') {
+                            confirmEspecialidadButton.disabled = true;
+                        }
+                        cargarUsuarios(); // Cargar usuarios después de cambiar el rol
                     })
                     .catch(error => {
-                        console.error('Error al agregar especialidad al médico:', error);
+                        console.error('Error al actualizar el rol del usuario:', error);
                     });
             } else {
-                console.log('El usuario ya tiene una especialidad asignada.');
+                console.log('Este usuario ya tiene asignado el rol de Médico.');
             }
         }
     });
     
+    confirmEspecialidadButton.addEventListener('click', function() {
+        const selectedRow = userTable.querySelector('tr.selected');
+        if (selectedRow && selectedRow.querySelector('td:nth-child(4)').textContent.trim() === 'Médico') {
+            const userEmailCell = selectedRow.querySelector('td:nth-child(3)'); // Obtener la celda que contiene el correo electrónico
+            const userEmail = userEmailCell.textContent.trim(); // Obtener el contenido de la celda (correo electrónico)
+            const selectedEspecialidad = especialidadesDropdown.options[especialidadesDropdown.selectedIndex].text;
+            if (selectedEspecialidad) {
+                if (!usuariosConEspecialidad.has(userEmail)) {
+                    usuariosConEspecialidad.add(userEmail);
+                    especialidadesDropdown.disabled = true;
+                    agregarEspecialidadAMedico(userEmail, selectedEspecialidad)
+                        .then(() => {
+                            cargarUsuarios(); // Actualizar usuarios después de cambiar la especialidad
+                            especialidadesDiv.style.display = 'none';
+                        })
+                        .catch(error => {
+                            console.error('Error al agregar especialidad al médico:', error);
+                        });
+                } else {
+                    console.log('El usuario ya tiene una especialidad asignada.');
+                }
+            }
+        }
+    });
 
     function obtenerUsuarios() {
         return new Promise((resolve, reject) => {
@@ -184,10 +195,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 solicitudUsuario.onsuccess = function(evento) {
                     const usuario = evento.target.result;
                     if (usuario) {
-                        if (!usuario.especialidades) {
-                            usuario.especialidades = [];
+                        if (!usuario.especialidad) {
+                            usuario.especialidad = [];
                         }
-                        usuario.especialidades.push(especialidad);
+                        usuario.especialidad.push(especialidad);
                         const actualizacion = almacenObjetos.put(usuario);
                         actualizacion.onsuccess = function() {
                             resolve();

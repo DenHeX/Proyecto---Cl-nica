@@ -60,31 +60,12 @@
 
                 <br><br>
 
-                <label for="hora">Hora:</label>
+                <label>Hora:</label>
                 <br>
+
                 <select id="hora" name="hora">
-                    <option value="08:00">08:00 AM</option>
-                    <option value="08:30">08:30 AM</option>
-                    <option value="08:30">09:00 AM</option>
-                    <option value="08:30">09:30 AM</option>
-                    <option value="08:30">10:00 AM</option>
-                    <option value="08:30">10:30 AM</option>
-                    <option value="08:30">11:00 AM</option>
-                    <option value="08:30">11:30 AM</option>
-                    <option value="08:30">12:00 PM</option>
-                    <option value="08:30">12:30 PM</option>
-                    <option value="08:30">1:00 PM</option>
-                    <option value="08:30">1:30 PM</option>
-                    <option value="08:30">2:00 PM</option>
-                    <option value="08:30">2:30 PM</option>
-                    <option value="08:30">3:00 PM</option>
-                    <option value="08:30">3:30 PM</option>
-                    <option value="08:30">4:00 PM</option>
-                    <option value="08:30">4:30 PM</option>
-                    <option value="08:30">5:00 PM</option>
-                    
-                    
                 </select>
+
                 <br><br>
 
                 <label for="especialidad">Especialidad:</label>
@@ -101,12 +82,9 @@
                 </select>
                 <br><br>
 
-                <label for="medico">Médico Asignado:</label>
+                <label">Médico Asignado:</label>
                 <br>
                 <select id="medico" name="medico">
-                    <option value="Dr. Juan Pérez">Dr. Juan Pérez</option>
-                    <option value="Dra. María Rodríguez">Dra. María Rodríguez</option>
-                    
                 </select>
                 <br><br>
 
@@ -140,13 +118,11 @@
         });
         var calendarioContainer = document.getElementById("calendarioContainer");
     
-        var anchoFormulario = document.getElementById("formulario").offsetWidth;
+        var anchoFormulario = document.getElementById("formulario");
     
-        calendarioContainer.style.width = anchoFormulario + "70px";
     
-        calendarioContainer.style.maxWidth = "80px"; 
     </script>
     
-    
+    <script src="javascript/citas.js"></script>
 </body>
 </html>
