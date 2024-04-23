@@ -205,7 +205,7 @@ label{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-top: 300px;
+    margin-top: 280px;
 }
 
 #infoGeneral > h2{
@@ -217,7 +217,7 @@ label{
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-top: 300px;
+    margin-top: 100px;
 }
 
 #infoRedes > h2{
@@ -446,7 +446,7 @@ h2 {
 
 #infoAlDia{
     margin-top: -100px;
-    height: 500px;
+    height: 300px;
 }
 
 .contactenos{
